@@ -31,14 +31,10 @@ with tf.device('/CPU:0'):
     ])
 
     # компиляция модели
-    model.compile(optimizer='adam',
-                  loss='sparse_categorical_crossentropy',
-                  metrics=['accuracy'])
+    model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
     # обучение модели
-    history = model.fit(datagen.flow(train_images, train_labels, batch_size=64),
-                        epochs=10, 
-                        validation_data=(test_images, test_labels))
+    history = model.fit(datagen.flow(train_images, train_labels, batch_size=64), epochs=10, validation_data=(test_images, test_labels))
 
 # визуализация
 plt.figure(figsize=(8, 4))
